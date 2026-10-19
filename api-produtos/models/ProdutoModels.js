@@ -9,11 +9,11 @@ export function criarProdutoModel({ pool }) {
         return { ...linhas[0], preco: Number(linhas[0].preco) }
     }
     async function criar(produto) {
-        const sql = 'INSERT INTO produtos (nome, preco, estoque, categoria) VALUE (?, ?, ?,?)';
+        const sql = 'INSERT INTO produtos (nome, preco, estoque, categoria) VALUES (?, ?, ?,?)';
         const valores = [produto.nome, produto.preco, produto.estoque, produto.categoria];
         const [resultado] = await pool.query(sql, valores);
         return { ...produto, id: resultado.insertId };
     }
-    return {listarTodos, buscarPorId, criar};
+    return { listarTodos, buscarPorId, criar };
 }
 

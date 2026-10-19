@@ -1,6 +1,6 @@
 import express from 'express';
 import { criarPool } from './config/database.js';
-import { criarProdutoModel } from './models/ProdutoModles.js';
+import { criarProdutoModel } from './models/ProdutoModels.js';
 import { criarProdutoService } from './services/ProdutoService.js';
 import { criarProdutoController } from './controllers/ProdutoController.js';
 import { criarProdutoRoutes } from './routes/produtosRoutes.js';
@@ -26,6 +26,6 @@ app.use((req, res) => {
 });
 
 app.use((erro, req, res, _next) => {
-  console.error('Erro de Sistema: ', erro.messsage);
+  console.error('Erro de Sistema: ', erro.message);
   res.status(500).json({ erro: 'Falha interna do servidor' });
 });

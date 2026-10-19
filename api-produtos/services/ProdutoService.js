@@ -16,7 +16,7 @@ export function criarProdutoService({ produtoModel }) {
     async function criar(dados) {
         const produto = new Produto({ id: 1, ...dados });
         return produtoModel.criar({
-            nome: produto.name,
+            nome: produto.nome,
             preco: produto.preco,
             estoque: produto.estoque,
             categoria: produto.categoria
